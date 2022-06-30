@@ -5,23 +5,21 @@ const googleInv = require('./jsonFiles/googleInventory.json')
 // TEMP! delete after WS1 transition
 const ws1Inv = require('./jsonFiles/ws1Inventory.json');
 
-azObjList = [];
+// vessel for truncated Azure objects array
+let azObjList = [];
+// array for holding array items that have been changed.
+let changeList = [];
 
-//turn Azure inventory items into objects, insert into azObjList
-const createAzObj = (device) => {
-    const azObj = {
-        deviceName: device.displayName,
-        azureRegistration: device.profileType,
-        id: device.objectId,
-        owner: device.userNames
+const printAzureDeviceAndOwner = (a) => {
+    for (let i = 0; i < a.length; i++) {
+       console.log(a[i].displayName);
+       console.log(a[i].objectId);
+       console.log(a[i].userNames);
     }
-    azObjList.push(azObj);
 };
 
-for (let i = 0; i < azureInv.length; i++) {
-    createAzObj(azureInv[i]);
-};
 
+printAzureDeviceAndOwner(azureInv);
 console.log(azObjList);
 
 /*console.log('Azure Inventory: ' + azureInv)
