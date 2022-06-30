@@ -1,5 +1,9 @@
-var azureInv = require('./azureInventory.json');
-var ws1Inv = require('./ws1Inventory.json');
+// import all the JSON files
+const azureInv = require('./jsonFiles/azureInventory.json');
+const googleInv = require('./jsonFiles/googleInventory.json')
+
+// TEMP! delete after WS1 transition
+const ws1Inv = require('./jsonFiles/ws1Inventory.json');
 
 azObjList = [];
 
